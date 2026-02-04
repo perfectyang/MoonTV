@@ -68,16 +68,19 @@ function executeCronJob() {
 
     res.on('data', (chunk) => {
       data += chunk;
+      console.log('aaaa');
     });
 
     res.on('end', () => {
       if (res.statusCode && res.statusCode >= 200 && res.statusCode < 300) {
-        console.log('Cron job executed successfully:', data);
+        console.log('Cron joh executed successfully:', data);
       } else {
         console.error('Cron job failed:', res.statusCode, data);
+        console.log('asdfasf');
       }
     });
   });
+  console.log('asdf');
 
   req.on('error', (err) => {
     console.error('Error executing cron job:', err);
